@@ -1,0 +1,37 @@
+// data/products.js
+const products = [
+    "Airtime",
+    "Internet Service",
+    "Airtime",
+    "Internet Service",
+    "International Airtime",
+    "Mobile Data",
+    "Electricity",
+    "Waste Bill",
+    "Credit and Loan",
+    "Tithe and Offering",
+    "Shopping",
+    "Online Shopping",
+    "Embassy",
+    "Exam",
+    "Grocery",
+    "Travel",
+    "Hotel",
+    "Transport",
+    "Toll",
+    "Crypto Exchange",
+    "Card Services",
+    "Delivery",
+    "Savings",
+    "Betting",
+    "Smartphone",
+    "Laptop",
+    "Tablet",
+    "Smartwatch",
+    "Headphones",
+    "Gaming Console",
+    "Fitness Tracker",
+    // Add more products as needed
+];
+
+module.exports = products;
