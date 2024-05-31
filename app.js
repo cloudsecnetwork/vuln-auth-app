@@ -30,6 +30,8 @@ app.use("/api/v1", require("./routes/forgotPassword"));
 app.use("/api/v1", require("./routes/dashboard"));
 app.use("/api/v1", require("./routes/updatePassword"));
 app.use("/api/v1", require("./routes/transactionDetail"));
+app.use("/admin", require("./routes/admin"));
+app.use("/db", require("./routes/admin"));
 
 // Serve index.html for any other requests
 app.get('*', (req, res) => {
