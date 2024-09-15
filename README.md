@@ -51,27 +51,41 @@ Once the application is running, you can access it by navigating to http://local
 
 ## Running App with Docker
 The application also utilizes Docker to containerize both the frontend and backend components. Make sure you have Docker installed on your system before proceeding.
- 
-### Image Build
-Ensure you are in the project root directory. Rename the `sample.env` file to `.env` and update the MongoDB connection string in the `.env` file with the appropriate values. 
 
-You can create a free acount with MongoDB Atlas and setup a database easily. You will get a database connection string that you can use in your environment file.
 
-Build the Docker image for the application using the following command:
+### Clone the repository
+```
+git clone https://github.com/cloudsecnetwork/vuln-auth-app.git
+cd vuln-auth-app/client
+```
+
+### Create Docker network
+```
+docker network create vuln-auth-app
+```
+
+### Run MongoDB container
+```
+docker run -d --name mongo --network vuln-auth-app -p 27017:27017 mongo
+```
+
+### Create .env file with MongoDB URI
+```
+echo "MONGODB_URI=mongodb://mongo:27017/csn" > .env
+```
+
+### Build the Docker image for the application
 ```
 docker build -t csn/vuln-auth-app .
 ```
 
-### Seeding Initial Data
-Run the Docker container with seeding to populate the database with initial data. This command executes the `seed.js` script to populate the database with initial data.
+### Seed initial data
 ```
-docker run -it --rm -p 8080:8080 --env-file .env csn/vuln-auth-app node seed.js
+docker run -it --network vuln-auth-app --rm -p 8080:8080 --env-file .env csn/vuln-auth-app node seed.js
 ```
-
-### Start Container
-Start the Docker container for the application using the following command. This command starts the application with the provided MongoDB connection string.
+### Start the application
 ```
-docker run -it --rm -p 8080:8080 --env-file .env csn/vuln-auth-app
+docker run -it -d --network vuln-auth-app --rm -p 8080:8080 --env-file .env csn/vuln-auth-app
 ```
 Once the application is up and running, you can access it in your web browser by navigating to http://localhost:8080
 
