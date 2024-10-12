@@ -53,7 +53,7 @@ Once the application is running, you can access it by navigating to http://local
 The application also utilizes Docker to containerize both the frontend and backend components. Make sure you have Docker installed on your system before proceeding.
  
 ### Image Build
-Ensure you are in the project root directory. Rename the `sample.env` file to `.env` and update the MongoDB connection string in the `.env` file with the appropriate values. 
+Ensure you are in the project root directory. Update the MongoDB connection string in the `.env` file with the appropriate values. 
 
 You can create a free acount with MongoDB Atlas and setup a database easily. You will get a database connection string that you can use in your environment file.
 

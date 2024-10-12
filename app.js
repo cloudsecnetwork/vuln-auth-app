@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const path = require("path"); // Import the path module to handle file paths
 
+require('dotenv').config() // Load Environment Variables
 const { connectDB } = require('./db'); // Import the database connection module
 const port = process.env.NODE_PORT || 8080;
 
