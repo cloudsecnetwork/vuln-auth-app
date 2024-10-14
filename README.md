@@ -65,13 +65,13 @@ docker build -t csn/vuln-auth-app .
 ### Seeding Initial Data
 Run the Docker container with seeding to populate the database with initial data. This command executes the `seed.js` script to populate the database with initial data.
 ```
-docker run -it --rm -p 8080:8080 --env-file .env csn/vuln-auth-app node seed.js
+docker run -it --rm -p 8080:8080 -e MONGODB_URI=mongodb://host.docker.internal:27017/csn csn/vuln-auth-app node seed.js
 ```
 
 ### Start Container
 Start the Docker container for the application using the following command. This command starts the application with the provided MongoDB connection string.
 ```
-docker run -it --rm -p 8080:8080 --env-file .env csn/vuln-auth-app
+docker run -d -p 8080:8080 -e MONGODB_URI=mongodb://host.docker.internal:27017/csn --name csn-app csn/vuln-auth-app
 ```
 Once the application is up and running, you can access it in your web browser by navigating to http://localhost:8080
 
